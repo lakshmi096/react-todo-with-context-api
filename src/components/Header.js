@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from "reactstrap";
 
 import ToggleTheme from './ToggleTheme';
-import SelectLanguage from "./SelectLanguage";
+// import SelectLanguage from "./SelectLanguage";
 
 const Header = ({theme, toggleTheme }) => {
     return(

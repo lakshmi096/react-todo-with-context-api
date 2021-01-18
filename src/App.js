@@ -5,9 +5,8 @@ import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './useDarkMode';
 import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './globals';
-import ToggleTheme from './components/ToggleTheme';
 import "./App.css";
-import SelectLanguage from "./components/SelectLanguage";
+// import SelectLanguage from "./components/SelectLanguage";
 import TodoForm from "./components/TodoForm";
 import Todos from "./components/Todos";
 import CheckList from "./assets/checklist.png"
@@ -26,7 +25,6 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
-        {/* <ToggleTheme theme={theme} toggleTheme={toggleTheme} /> */}
         <Header theme={theme} toggleTheme={toggleTheme} />
         {/* <SelectLanguage/> */}
         <TodoContextProvider>
