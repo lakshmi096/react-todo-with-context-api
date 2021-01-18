@@ -6,7 +6,7 @@
     Create a todo list & mark them done as you proceed. Also has dark & light theme switching with context API.
     <br />
     <br />
-    <a target="_blank" href="http://lakshmi096.github.io/react-todo-with-context-api">View Demo</a>
+    <a target="_blank" href="https://lakshmi096.github.io/react-todo-with-context-api/">View Demo</a>
   </p>
 </p>
 
