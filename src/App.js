@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "reactstrap";
+import { ThemeProvider } from 'styled-components';
+import { useDarkMode } from './useDarkMode';
+import { lightTheme, darkTheme } from './theme';
+import { GlobalStyles } from './globals';
+import ToggleTheme from './components/ToggleTheme';
+import "./App.css";
+import SelectLanguage from "./components/SelectLanguage";
+import TodoForm from "./components/TodoForm";
+import Todos from "./components/Todos";
+import CheckList from "./assets/checklist.png"
+import TodoContextProvider from "./context/themeContext/TodoContextProvider";
+import Header from "./components/Header";
 
 function App() {
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        {/* <ToggleTheme theme={theme} toggleTheme={toggleTheme} /> */}
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        {/* <SelectLanguage/> */}
+        <TodoContextProvider>
+          <Container fluid>
+            <h1 className="heading">
+              <img src={CheckList} alt="checklist"/>
+              <span>Todo list with Context API</span>
+            </h1>        
+            <TodoForm />
+            <Todos/>
+          </Container>
+        </TodoContextProvider>
+      </>
+    </ThemeProvider>
+
+
+
   );
 }
 
